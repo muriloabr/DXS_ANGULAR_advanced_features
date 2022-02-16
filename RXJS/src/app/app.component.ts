@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { rejects } from 'assert';
-import { resolve } from 'dns';
 
 @Component({
   selector: 'app-root',
@@ -25,26 +23,10 @@ import { resolve } from 'dns';
         <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
       </li>
     </ul>
-    
   `,
   styles: []
 })
-export class AppComponent implements OnInit {
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-  title = 'RXJS';
-
-  minhaPromise(nome: string): Promise<string> {
-    return new Promise(resolve, reject) => {
-      if(nome == "Esse nome"){ 
-        setTimeout( () => {
-          resolve("Bem vindo"  +  nome);
-        }, 1000);
-      } else {
-        rejects("NAO É VOCE!");
-      }
-    };
-  }
+export class AppComponent {
+  title = "DXS | PROMISES vs OBSERVABLES";
 }
