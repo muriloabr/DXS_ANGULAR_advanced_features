@@ -1,0 +1,89 @@
+<div class="container main-container">
+  <h3><span class="text-muted">Teste de:</span> Interpolation</h3>
+  <br>
+  <!--ngClass condicional aonde todas classes sao cumulativas se : true-->
+  <p [ngClass]="{
+    'text-danger':contadorCliques <= 5,
+    'text-primary':contadorCliques <= 9,
+    'text-success':contadorCliques > 9  
+  }">
+    Identificamos {{ contadorCliques }} cliques realizados!
+  </p>
+  <hr>
+
+  <br>
+  <h3><span class="text-muted">Teste de:</span> Property Binding</h3>
+  <br>
+  <button class="btn btn-danger" [disabled]="contadorCliques < 10" (click)="adicionarClique()">{{ textoBotao10Cliques }}</button>
+  <br><br>
+  <figure class="figure">
+    <img [src]="imgLink" height="150px" width="auto" class="figure-img img-fluid" alt="Software Solutions logo" />
+    <figcaption class="figure-caption">Imagem: Software Solutions</figcaption>
+  </figure>
+  <hr>
+
+  <br>
+  <h3><span class="text-muted">Teste de:</span> Event Binding</h3>
+  <br>
+  <button class="btn btn-warning" (click)="adicionarClique()">CLIQUE AQUI!</button>
+  &nbsp;
+  <button class="btn btn-secondary" (click)="zerarCliques()" [disabled]="contadorCliques < 10">ZERAR CLIQUES</button>
+  <br>
+  <hr>
+
+  <br>
+  <h3><span class="text-muted">Teste de:</span> Two-way Binding</h3>
+  <!--input type="text" (keyup)="apertouATecla($event)" placeholder="Digite aqui o texto"  \\MODO MANUAL DE CAPTURAR O DADO PASSANDO A REFERENCIA DO OBJETO PRA COPIAR O VALOR NO CODIGO>
+  &nbsp;
+  <label>Mensagem: "{{ nome_paraTwoWay_falsoTwoWay | uppercase }}"</label-->
+  <!--input type="text" [ngModel] = "nome_paraTwoWay_explicito" (ngModelChange) = "nome_paraTwoWay_explicito = $event" placeholder="Digite aqui o texto" //ABAIXO A FORMA ELEGANTE DE FAZER ISSO >
+  &nbsp;
+  <label>Mensagem: "{{ nome_paraTwoWay_explicito | uppercase }}"</label-->
+  <input type="text" [(ngModel)]= "nome_paraTwoWay" placeholder="Digite aqui o texto">
+  &nbsp;
+  <label [ngClass]="nome_paraTwoWay">Mensagem: "{{ nome_paraTwoWay | uppercase }}"</label>
+  <br>
+  <hr>
+
+  <br>
+  <h3><span class="text-muted">Teste de:</span> Diretivas Estruturais</h3>
+  <div class="container main-container">
+    <div class="row text-center" >
+      <h4 [class]="'col-md-12'"><span class="text-muted">Extinção: </span> Abaixo temos dinossauros, devem existir mais de 2 raças, senão todos serão extintos!</h4>
+      <ng-template [ngIf]="(listaItensAExibir.length > 2)"> <!-- LISTA SE HOUVEREM ITEMS SUFICIENTES! INICIO -->
+        <div *ngFor="let item of listaItensAExibir; let indice = index" class="col-md-4" style="padding-bottom: 30px;"> <!-- ouve a lista e cria os items conforme tem dados, por isso é importante ter metodos de esconder os dados que forem sendo filtrados -->
+          <!-- lista os itens conforme os filtros ativos -->
+          <div [id]="(listaItensAExibir.indexOf(item))"            
+            [ngStyle]="{'color': (dinoDestaque==(listaItensAExibir.indexOf(item)))?'':item.color, 'background-color': '#dcdcdc'}" 
+            [class]="{'card': true, 'h-100': true, 'text-white': (dinoDestaque==(listaItensAExibir.indexOf(item)))?true:false, 'bg-success': (dinoDestaque==(listaItensAExibir.indexOf(item)))?true:false}">
+              
+              <button (click)="removerItemDaLista(indice)" type="button" [class]="'btn btn-close col-md-2'" [style.color]="'red'" [title]="'Extinguir este dino!'" aria-label="Close">
+                <span [class]="'blockquote'">×</span>
+              </button>
+                <a class="text-decoration-none">
+                    <div style="align-content:center;">
+                        <img src="{{ item.img }}" height="164px" width="253px" alt="{{item.nome}}">
+                    </div>
+                </a>
+                <h4 class="card-title">{{ item.nome | titlecase }}</h4>
+            </div>
+        </div>
+        <h4 [class]="'col-md-12'"><span class="text-muted">Filtros: </span> Filtre sua visualização acima!</h4>
+        <div class="form-check form-switch">
+          <input class="check-input" type="checkbox" id="flexSwitchCheckDefault"
+            [checked]="filtro_requerVoar" (change)="filtro_requerVoar = !filtro_requerVoar" >&nbsp;
+          <label class="form-check-label" for="flexSwitchCheckDefault">&nbsp;Só os que voam!</label>
+        </div>
+      </ng-template><!-- LISTA SE HOUVEREM ITEMS SUFICIENTES! FIM -->
+      <ng-template [ngIf]="(listaItensAExibir.length <= 2)"> <!-- LISTA SE HOUVEREM ITEMS INSUFICIENTES! INICIO -->
+        <div class="col-md-12 text-danger" >
+          <h4>A extinção chegou!</h4>
+          <button class="btn btn-danger" (click)="reiniciarListaItens()">FAZER RECONSTITUIÇÃO GENÉTICA!</button>
+        </div>
+      </ng-template><!-- LISTA SE HOUVEREM ITEMS INSUFICIENTES! FIM -->
+    </div>
+  </div>
+  <br>
+  <hr>
+  <br>
+</div>
