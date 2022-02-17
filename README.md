@@ -1,3 +1,3 @@
-# DXS_ANGULAR_observables_vs_promisses
+# DXS| ANGULAR advanced features
 
 CD RXJS | ng s --live-reload
