@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -23,10 +24,47 @@ import { Component, OnInit } from '@angular/core';
         <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
       </li>
     </ul>
+    
   `,
   styles: []
 })
+export class AppComponent implements OnInit {
 
-export class AppComponent {
-  title = "DXS | PROMISES vs OBSERVABLES";
+  ngOnInit(): void {
+    //PROMISE FAZ A REQUISIÇÃO, RETORNA SUCESO OU ERRO E FINALIZA, NECESSITANDO DE RECHAMAR PARA FAZER DE NOVO SE PRECISAR
+    //this.minhaPromise("angular").then(result => console.log(result));
+    //this.minhaPromise("csharp").then(result => console.log(result)).catch(erro => console.log(erro)); //PROMISES PODEM RETORNAR ERRO ENTAO TRATA-SE COM CATCH
+    //OBSERVABLES FAZEM REQUISIÇÕES SEM PRECISAR FINALIZAR, CRIANDO UMA ASSINATURA DE CONTEUDO, NECESSITANDO CANCELAR ASSINATURAS MANUALMENTE
+    this.minhaObservable("angular").subscribe(result => console.log(result));
+    this.minhaObservable("chsarp").subscribe({next: (result) => console.log(result), error: (erro) => console.log("Erro: " + erro)}); //PROMISES PODEM RETORNAR ERRO ENTAO TRATA-SE COM CATCH
+  }
+  title = 'RXJS';
+
+  minhaPromise(nome: string): Promise<string> { //METODO RETONA PROMISE()
+    return new Promise((resolve, reject) => {
+      if(nome == "angular"){
+        setTimeout(() => {
+          resolve("Te conheco: " + nome)
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          reject("Voce não tem nome conhecido: " + nome);
+        }, 2000);        
+      }
+    })
+  }
+
+  minhaObservable(nome: string): Observable<string> {
+    return new Observable(subscriber => {
+      if(nome === "angular"){
+        subscriber.next("Conheço sim: " + nome);
+      } else {
+        subscriber.error("Não conheço esse nome ai: " + nome);
+      }
+      subscriber.next("Sou sua Observable!!"); //ASSINATURA PARA RECEBER DADOS
+      setTimeout(() => {
+        subscriber.next("Sou sua Observable com delay!!"); 
+      }, 2000); 
+    });
+  }
 }
