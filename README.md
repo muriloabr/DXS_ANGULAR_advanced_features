@@ -5,6 +5,10 @@ Aplicação e estudo dos conceitos avançados de programação em Angular
 ## PROJETOS
 ### RXJS
 - promises vs observables;
+
+**Comandos para rodar o projeto**
+CD RXJS | ng s --live-reload
+
 - Estruturas, conceitos, funções;
 - ✨Atualizações da linguagem + comentários.
 
@@ -13,4 +17,3 @@ Fique por dentro deste repositório com atualizações sempre que possível!
 
 
 
-CD RXJS | ng s --live-reload
