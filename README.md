@@ -3,13 +3,21 @@
 
 Aplicação e estudo dos conceitos avançados de programação em Angular  
 ## PROJETOS
-- ### RXJS
+- ### PromisesVsObservables
 
   **Conceitos abordados:**  
   - Promises vs observables;
 
   **Comandos para rodar este projeto:**  
-  ``CD RXJS | ng s --live-reload``  
+  ``CD PromisesVsObservables | ng s --live-reload``  
+ 
+- ### Formularios
+
+  **Conceitos abordados:**  
+  - FormControl vs FormBuilder, Masks, NgBrazilValidators, FormGroup, FormControlName, ngSubmit, ngAfterViewInit;  
+
+  **Comandos para rodar este projeto:**  
+  ``CD Formularios | ng s --live-reload``  
   
 ##
 
