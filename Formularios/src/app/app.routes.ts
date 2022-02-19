@@ -5,6 +5,7 @@ import { SobreComponent } from './institucional/sobre/sobre.component';
 import { CorpoComponent } from './navegacao/corpo/corpo.component';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 import { CadastroComponent } from './reactiveForms/cadastro/cadastro.component';
+import { Cadastro2Component } from './reactiveForms/cadastro/cadastro2.component';
 
 export const rootRouterConfig: Routes = [
     { path: '', redirectTo: '/loja', pathMatch: 'full'},
@@ -14,5 +15,6 @@ export const rootRouterConfig: Routes = [
     { path: 'apps', component: DataBindingComponent},
     { path: 'produtos', component: ListaProdutoComponent},
     { path: 'produto-detalhe/:id', component: ListaProdutoComponent},
-    { path: 'cadastro', component: CadastroComponent}
+    { path: 'cadastro', component: CadastroComponent},
+    { path: 'cadastro2', component: Cadastro2Component}
 ];

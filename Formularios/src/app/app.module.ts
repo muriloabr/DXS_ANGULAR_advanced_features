@@ -22,6 +22,7 @@ import { ProdutoService } from './produtos/produtos.service';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 //REACTIVE FORMS
 import { CadastroComponent } from './reactiveForms/cadastro/cadastro.component';
+import { Cadastro2Component } from './reactiveForms/cadastro/cadastro2.component';
 import { TextMaskModule } from 'angular2-text-mask';
 import { NgBrazil } from 'ng-brazil';
 import { HttpClientModule } from '@angular/common/http';
@@ -37,7 +38,8 @@ import { CustomFormsModule } from 'ng2-validation'
     ContatoComponent,
     DataBindingComponent,
     ListaProdutoComponent,
-    CadastroComponent
+    CadastroComponent,
+    Cadastro2Component
   ],
   imports: [
     BrowserModule,

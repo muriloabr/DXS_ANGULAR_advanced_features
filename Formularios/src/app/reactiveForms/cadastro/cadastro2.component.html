@@ -1,5 +1,5 @@
 <div class="container main-container">
-    <h4>Demo de Cadastro com validação tradicional</h4><h5>[reactive form]</h5>
+    <h4>Demo de Cadastro com validação automatizada</h4><h5>[reactive form]</h5>
     <hr />
     <!--ATRELANDO O FormGroup DESTE FORMULARIO AO cadastroForm DO MESMO TIPO |
             ngSubmit = A AÇÃO DE SUBMISSÃO QUE FICA POR CONTA DO MÉTODO adicionarUsuario()-->
@@ -10,12 +10,11 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="nome">Nome Completo</label>
                 <div class="col-md-10">
-                    <!--ngIf INFORMANDO DO ERRO CASO FORMULARIO ESTIVER COM (ERRO NO DADO DO CAMPO) E (CAMPO SUJO OU CAMPO TOCADO)-->
                     <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)" formControlName="nome"
-                    [ngClass]="{ 'is-invalid' : cadastroForm.get('nome')?.errors && (cadastroForm.get('nome')?.dirty || cadastroForm.get('nome')?.touched) }" />                   
+                    [ngClass]="{ 'is-invalid' : mostrarMensagem.nome }" />                   
                 </div>
-                <span class="text-danger" *ngIf="cadastroForm.get('nome')?.errors && (cadastroForm.get('nome')?.dirty || cadastroForm.get('nome')?.touched)">
-                    <p>Informe um nome válido!</p>
+                <span class="text-danger" *ngIf="mostrarMensagem.nome">
+                    <p [innerHtml]="mostrarMensagem.nome"></p>
                 </span>
             </div>
 
@@ -25,11 +24,8 @@
                     <!--MASCARA DO NgBrazil SENDO APLICADA NO CAMPO CPF-->
                     <input class="form-control" id="cpf" type="text" placeholder="CPF (requerido)" formControlName="cpf" cpf [textMask] = "{mask: mascaras.cpf.textMask}"/>                    
                 </div>
-                <span class="text-danger" *ngIf="cadastroForm.get('cpf')?.errors?.required && (cadastroForm.get('cpf')?.dirty || cadastroForm.get('cpf')?.touched)" >
-                    <p>Preencha com seu CPF!</p>
-                </span>
-                <span class="text-danger" *ngIf="cadastroForm.get('cpf')?.errors?.cpf && (cadastroForm.get('cpf')?.dirty || cadastroForm.get('cpf')?.touched)">
-                    <p>Informe um CPF válido!</p>
+                <span class="text-danger" *ngIf="mostrarMensagem.cpf">
+                    <p [innerHtml]="mostrarMensagem.cpf"></p>
                 </span>
             </div>
 

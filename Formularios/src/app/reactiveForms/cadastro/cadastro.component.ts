@@ -1,17 +1,17 @@
-import { IfStmt, ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { NgBrazilValidators } from 'ng-brazil';
 import { Usuario } from './models/usuario';
 import { utilsBr } from 'js-brasil';
-import { CustomFormsModule, CustomValidators } from 'ng2-validation';
+import { CustomValidators } from 'ng2-validation';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html'
 })
 
-export class CadastroComponent implements OnInit {
+export class CadastroComponent implements OnInit { 
+
   //VALIDACAO CUSTOMIZADA E COM COMPARACAO
   private senha = new FormControl('', [Validators.required, CustomValidators.rangeLength([6,15])]);
   private senhaConfirmacao = new FormControl('', [CustomValidators.equalTo(this.senha)]);
@@ -39,7 +39,8 @@ export class CadastroComponent implements OnInit {
   //MASKS
   mascaras = utilsBr.MASKS;
 
-  constructor(private formBuilderMeu: FormBuilder) { }
+  constructor(private formBuilderMeu: FormBuilder) { 
+  }
 
   ngOnInit(): void { }
 
@@ -48,7 +49,6 @@ export class CadastroComponent implements OnInit {
     if(this.cadastroForm.dirty && this.cadastroForm.valid) {
       this.usuario = Object.assign({}, this.cadastroForm.value);
       this.resultadoDoForm = JSON.stringify(this.usuario);
-      //console.log(this.resultadoDoForm);
     }    
   }
 }
