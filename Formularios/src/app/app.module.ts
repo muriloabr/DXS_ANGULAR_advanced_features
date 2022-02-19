@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -24,6 +22,10 @@ import { ProdutoService } from './produtos/produtos.service';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 //REACTIVE FORMS
 import { CadastroComponent } from './reactiveForms/cadastro/cadastro.component';
+import { TextMaskModule } from 'angular2-text-mask';
+import { NgBrazil } from 'ng-brazil';
+import { HttpClientModule } from '@angular/common/http';
+import { CustomFormsModule } from 'ng2-validation'
 
 @NgModule({
   declarations: [
@@ -42,6 +44,9 @@ import { CadastroComponent } from './reactiveForms/cadastro/cadastro.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgBrazil,
+    TextMaskModule,
+    CustomFormsModule,
     [RouterModule.forRoot(rootRouterConfig, { useHash: false})]
   ],
   providers: [

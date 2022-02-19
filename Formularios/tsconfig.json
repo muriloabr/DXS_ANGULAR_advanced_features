@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
+    "noPropertyAccessFromIndexSignature": false, //COLOQUEI FALSE PARA LIBERAR O USO DE cadastroForm.get('formularioComponente')?.errors?.required ACESSO AO required, etc
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
