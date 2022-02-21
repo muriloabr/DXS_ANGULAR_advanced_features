@@ -5,7 +5,7 @@ export class ValidadorGenerico {
     constructor(private mensagemDeValidacao: MensagensDeValidacao) { } //RECEBE MensagensDeValidacao A COLECAO EM MATRIZ DE KEY: [KEY VALUE]
 
     processarMensagens(formulario: FormGroup): { [key: string]: string } {
-        let todasMensagens: any;
+        let todasMensagens = {};
 
         for (let nomeDoControleInternoAtual in formulario.controls) { //PARA CADA CONTROLE DENTRO DO FORMULARIO
 

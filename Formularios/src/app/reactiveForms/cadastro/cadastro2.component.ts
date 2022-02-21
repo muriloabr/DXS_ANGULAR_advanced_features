@@ -27,15 +27,6 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
     senha: this.senha, //ATRIBUINDO CUSTOMIZACAO
     senhaConfirmacao: this.senhaConfirmacao //ATRIBUINDO CUSTOMIZACAO
   });
-  /* //METODO DIRETO COM FORMGROUP RECEBENDO VARIOS FORMCONTROLs
-    public cadastroForm: FormGroup = new FormGroup({
-      nome: new FormControl(''),
-      cpf: new FormControl(''),
-      email: new FormControl(''),
-      senha: new FormControl(''),
-      senhaConfirmacao: new FormControl('') 
-    });
-    */
 
   //USUARIO QUE O FORM VAI PRODUZIR PARA SER CADASTRADO NO FINAL DA SUBMISSAO PARA O END-POINT SERIZALIZADO EM JSON
   usuario!: Usuario;
@@ -47,8 +38,7 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
   mostrarMensagem: MostrarMensagem = {};
   validadorGenerico: ValidadorGenerico;
 
-  constructor(private formBuilderMeu: FormBuilder) {
-    
+  constructor(private formBuilderMeu: FormBuilder) {    
     
     this.mensagensDeValidacao = {
       nome: {
@@ -75,11 +65,23 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
     };
     this.validadorGenerico = new ValidadorGenerico(this.mensagensDeValidacao);
   }
+
   ngAfterViewInit(): void { //AO TERMINAR DE CARREGAR E DISPONIBILIZAR A PAGINA PRO USER
-    let controlBlurs: Observable<any>[] = this.formInputElements.map((formControl: ElementRef) => fromEvent(formControl.nativeElement, 'blur')); //MUDANCA DE FOCUS 'BLUR' ELE FAZ VALIDACAO NO FORM
-    merge(...controlBlurs).subscribe(() => {
+    // Watch for the blur event from any input element on the form.
+    const controlBlurs: Observable<any>[] = this.formInputElements
+      .map((formControl: ElementRef) => fromEvent(formControl.nativeElement, 'blur'));
+
+    // Merge the blur event observable with the valueChanges observable
+    merge(this.cadastroForm.valueChanges, ...controlBlurs).subscribe(value => {
       this.mostrarMensagem = this.validadorGenerico.processarMensagens(this.cadastroForm);
-    })
+    });
+
+    /*
+    let controlBlurs: Observable<any>[] = this.formInputElements
+      .map((formControl: ElementRef) => fromEvent(formControl.nativeElement, 'blur')); //MUDANCA DE FOCUS 'BLUR' ELE FAZ VALIDACAO NO FORM
+    merge(controlBlurs).subscribe(() => {
+      this.mostrarMensagem = this.validadorGenerico.processarMensagens(this.cadastroForm);
+    })*/
   }
 
   ngOnInit(): void { }
@@ -89,7 +91,6 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
     if(this.cadastroForm.dirty && this.cadastroForm.valid) {
       this.usuario = Object.assign({}, this.cadastroForm.value);
       this.resultadoDoForm = JSON.stringify(this.usuario);
-      //console.log(this.resultadoDoForm);
     }    
   }
 }

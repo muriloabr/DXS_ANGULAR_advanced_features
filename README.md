@@ -16,6 +16,11 @@ Aplicação e estudo dos conceitos avançados de programação em Angular
   **Conceitos abordados:**  
   - FormControl vs FormBuilder, Masks, NgBrazilValidators, FormGroup, FormControlName, ngSubmit, ngAfterViewInit;  
 
+  **Instalações requeridas para rodar o projeto:**  
+  ``npm install ng2-validation --save``   
+  ``npm install --save ng-brazil js-brasil``  
+  ``npm i -S angular2-text-mask text-mask-addons``  
+  
   **Comandos para rodar este projeto:**  
   ``CD Formularios | ng s --live-reload``  
   

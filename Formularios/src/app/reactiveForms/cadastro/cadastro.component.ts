@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgBrazilValidators } from 'ng-brazil';
 import { Usuario } from './models/usuario';
 import { utilsBr } from 'js-brasil';
