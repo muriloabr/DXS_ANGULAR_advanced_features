@@ -22,7 +22,7 @@ export class ValidadorGenerico {
                         if ((controleCapturado.dirty || controleCapturado.touched) && controleCapturado.errors) { //SE CONTROLE CAPTURADO TEM ERRO PARA EXIBIR
                             Object.keys(controleCapturado.errors).map(messageKey => { //LISTO SÓ AS KEYS DO ARRAY DE ERRORS DO CONTROLE CAPTURADO
                                 /*PARA CADA messageKey LISTADA EXECUTO UMA AÇÃO USANDO MAP: SE NA mensagemDeValidacao CONTEM O CONTROLE CITADO E A messageKey REFERENTE ENTÃO..*/
-                                if (this.mensagemDeValidacao[nomeDoControleInternoAtual][messageKey]) { 
+                                if ((this.mensagemDeValidacao[nomeDoControleInternoAtual][messageKey])  != undefined ) { 
                                     todasMensagens[nomeDoControleInternoAtual] += this.mensagemDeValidacao[nomeDoControleInternoAtual][messageKey] + '<br />'; 
                                     /*...RECEBO EM todasMensagens COM A [KEY] = [O NOME DO CONTROLE ATUAL], AS MENSAGENS DE VALIDACAO DE mensagemDeValidacao 
                                     QUE PASSARAM PELO FILTRO IF DO MAP*/

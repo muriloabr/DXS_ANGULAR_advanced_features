@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from
 import { NgBrazilValidators } from 'ng-brazil';
 import { Usuario } from './models/usuario';
 import { utilsBr } from 'js-brasil';
-import { CustomFormsModule, CustomValidators } from 'ng2-validation';
+import { CustomValidators } from 'ng2-validation';
 import { MensagensDeValidacao, MostrarMensagem, ValidadorGenerico }  from './validacao-formulario-generico';
 import { fromEvent, merge, Observable } from 'rxjs';
 
@@ -18,10 +18,11 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
 
   //VALIDACAO CUSTOMIZADA E COM COMPARACAO
   private senha = new FormControl('', [Validators.required, CustomValidators.rangeLength([6,15])]);
-  private senhaConfirmacao = new FormControl('', [CustomValidators.equalTo(this.senha)]);
+  private senhaConfirmacao = new FormControl('', [Validators.required, CustomValidators.equalTo(this.senha)]);
+  
   //GRUPO DE COMPONENTES DO FORMULARIO, ATRELADO AO FORMULARIO HTML
   public cadastroForm: FormGroup = this.formBuilderMeu.group({
-    nome: ['', [Validators.required, Validators.minLength(3)]],
+    nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(150)]],
     cpf: ['', [Validators.required, NgBrazilValidators.cpf]],
     email: ['', [Validators.required, Validators.email]],
     senha: this.senha, //ATRIBUINDO CUSTOMIZACAO
@@ -40,29 +41,31 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
 
   constructor(private formBuilderMeu: FormBuilder) {    
     
+    //DEFININDO AS MENSAGENS DE ERRO PARA CADA PROPRIEDADE DE ERRO, EM LETRA MINUSCULA
     this.mensagensDeValidacao = {
       nome: {
-        required: 'O nome é requerido!',
-        minLength: 'O nome deve ter pelo menos 3 letras'
+        required: 'Seu nome é requerido',
+        minlength: 'Seu nome precisa ter no mínimo 3 caracteres',
+        maxlength: 'Seu nome precisa ter no máximo 150 caracteres'
       },
       cpf: {
-        required: 'Informe o CPF',
-        cpf: 'CPF em formato inválido'
+        required: 'Informe seu CPF',
+        cpf: 'Este CPF está inválido'
       },
       email: {
-        required: 'Informe o e-mail',
+        required: 'Informe seu melhor e-mail',
         email: 'Email inválido'
       },
       senha: {
         required: 'Informe a senha',
-        rangeLength: 'A senha deve possuir entre 6 e 15 caracteres'
+        rangelength: 'A senha deve possuir entre 6 e 15 caracteres'
       },
       senhaConfirmacao: {
         required: 'Informe a senha novamente',
-        rangeLength: 'A senha deve possuir entre 6 e 15 caracteres',
-        equalTo: 'As senhas não conferem'
+        equalto: 'As senhas digitas não conferem'
       }
     };
+    //ATRELANDO AS MENSAGENS DE VALIDACAO A CADA COMPONENTE
     this.validadorGenerico = new ValidadorGenerico(this.mensagensDeValidacao);
   }
 
@@ -70,7 +73,7 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
     // Watch for the blur event from any input element on the form.
     const controlBlurs: Observable<any>[] = this.formInputElements
       .map((formControl: ElementRef) => fromEvent(formControl.nativeElement, 'mouseover'));
-
+ 
     // Merge the blur event observable with the valueChanges observable
     merge(this.cadastroForm.valueChanges, ...controlBlurs).subscribe(value => {
       this.mostrarMensagem = this.validadorGenerico.processarMensagens(this.cadastroForm);
