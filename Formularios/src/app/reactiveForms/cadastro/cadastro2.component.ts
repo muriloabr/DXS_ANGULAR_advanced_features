@@ -69,15 +69,15 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
     this.validadorGenerico = new ValidadorGenerico(this.mensagensDeValidacao);
   }
 
-  ngAfterViewInit(): void { //AO TERMINAR DE CARREGAR E DISPONIBILIZAR A PAGINA PRO USER
+  ngAfterViewInit(): void { //AO TERMINAR DE CARREGAR E DISPONIBILIZAR A PAGINA PRO USUARIO
     // Watch for the blur event from any input element on the form.
     const controlBlurs: Observable<any>[] = this.formInputElements
-      .map((formControl: ElementRef) => fromEvent(formControl.nativeElement, 'mouseover'));
+      .map((formControl: ElementRef) => fromEvent(formControl.nativeElement, 'blur'));
  
     // Merge the blur event observable with the valueChanges observable
-    merge(this.cadastroForm.valueChanges, ...controlBlurs).subscribe(value => {
+    merge(...controlBlurs).subscribe(value => {
       this.mostrarMensagem = this.validadorGenerico.processarMensagens(this.cadastroForm);
-    });
+    });1
   }
 
   ngOnInit(): void { }

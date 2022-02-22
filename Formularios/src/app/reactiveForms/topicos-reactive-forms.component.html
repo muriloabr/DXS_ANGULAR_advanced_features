@@ -1,0 +1,18 @@
+<div class="container main-container">
+    <h4>Demo de Cadastro com validação automatizada</h4><h5>[reactive form]</h5>
+    <hr />
+    <!--ATRELANDO O FormGroup DESTE FORMULARIO AO cadastroForm DO MESMO TIPO |
+            ngSubmit = A AÇÃO DE SUBMISSÃO QUE FICA POR CONTA DO MÉTODO adicionarUsuario()-->
+    <form novalidate (ngSubmit)="adicionarUsuario()" [formGroup]="cadastroForm"> 
+
+        <div class="form-horizontal">                
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="nome">Nome Completo</label>
+                <div class="col-md-4 col-md-offset-2">
+                    <!--BOTAO NÃO É LIBERADO ENQUANTO O FORMULARIO ESTIVER INVALIDO-->
+                    <span><button class="btn btn-success" id="Registrar" [disabled]="!cadastroForm.valid" type="submit">Registrar</button></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

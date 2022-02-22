@@ -20,7 +20,8 @@ export class ValidadorGenerico {
                     if (this.mensagemDeValidacao[nomeDoControleInternoAtual]) { //SE EXISTE UMA MENSAGEM DE VALIDACAO PARA ESTE ITEM DO FORMULARIO
                         todasMensagens[nomeDoControleInternoAtual] = ''; //CRIO OU ZERO O ESPAÇO DENTRO DE todasMensagens COM O MESMO NOME DO CONTROLE ATUAL
                         if ((controleCapturado.dirty || controleCapturado.touched) && controleCapturado.errors) { //SE CONTROLE CAPTURADO TEM ERRO PARA EXIBIR
-                            Object.keys(controleCapturado.errors).map((messageKey) => { messageKey = messageKey.toLowerCase();//LISTO SÓ AS KEYS DO ARRAY DE ERRORS DO CONTROLE CAPTURADO
+                            Object.keys(controleCapturado.errors).map((messageKey) => { //LISTO SÓ AS KEYS DO ARRAY DE ERRORS DO CONTROLE CAPTURADO
+                                messageKey = messageKey.toLowerCase(); //CONFIGURO OS NOMES DOS ERROS PARA MINUSCULO PARA COMBINAR COM MEU DICIONARIO CUSTOMIZADO!
                                 /*PARA CADA messageKey LISTADA EXECUTO UMA AÇÃO USANDO MAP: SE NA mensagemDeValidacao CONTEM O CONTROLE CITADO E A messageKey REFERENTE ENTÃO..*/
                                 if ((this.mensagemDeValidacao[nomeDoControleInternoAtual][messageKey])  != undefined ) { 
                                     todasMensagens[nomeDoControleInternoAtual] += this.mensagemDeValidacao[nomeDoControleInternoAtual][messageKey] + '<br />'; 
