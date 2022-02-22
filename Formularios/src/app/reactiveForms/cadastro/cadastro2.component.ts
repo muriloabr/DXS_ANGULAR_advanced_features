@@ -32,7 +32,7 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
   //USUARIO QUE O FORM VAI PRODUZIR PARA SER CADASTRADO NO FINAL DA SUBMISSAO PARA O END-POINT SERIZALIZADO EM JSON
   usuario!: Usuario;
   resultadoDoForm: string = '';
-  //MASKS
+  //VARIAVEL QUE CARREGA A BIBLIOTECA DE MASCARAS BR DE CAMPOS COMO CPF, CNPJ, ETC
   mascaras = utilsBr.MASKS;
   //VALIDAÇÕES AUTOMATIZADAS PELA CLASSE validacao-formulario-generico
   mensagensDeValidacao: MensagensDeValidacao;

@@ -21,7 +21,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label">CPF</label>
                 <div class="col-md-10">
-                    <!--MASCARA DO NgBrazil SENDO APLICADA NO CAMPO CPF-->
+                    <!--MASCARA DO UtilsBR SENDO APLICADA NO CAMPO CPF-->
                     <input class="form-control" id="cpf" type="text" placeholder="CPF (requerido)" formControlName="cpf" cpf [textMask] = "{mask: mascaras.cpf.textMask}"/>                    
                 </div>
                 <span class="text-danger" *ngIf="mostrarMensagem.cpf">
@@ -33,12 +33,9 @@
                 <label class="col-md-2 control-label">E-mail</label>
                 <div class="col-md-10">
                     <input class="form-control" id="email" type="text" placeholder="E-mail (requerido)" formControlName="email"
-                     [ngClass]="{ 'is-invalid' : cadastroForm.get('email')?.errors && (cadastroForm.get('email')?.dirty || cadastroForm.get('email')?.touched) }" /> 
-                    <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.required && (cadastroForm.get('email')?.dirty || cadastroForm.get('email')?.touched)">
-                        <p>Preencha com seu e-mail!</p>
-                    </span>
-                    <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.cpf && (cadastroForm.get('email')?.dirty || cadastroForm.get('email')?.touched)">
-                        <p>Informe um e-mail válido!</p>
+                    [ngClass]="{ 'is-invalid' : mostrarMensagem.email }" />                    
+                    <span class="text-danger" *ngIf="mostrarMensagem.email">
+                        <p [innerHtml]="mostrarMensagem.email"></p>
                     </span>
                 </div>
             </div>
@@ -46,18 +43,25 @@
             <div class="form-group">
                 <label class="col-md-2 control-label">Senha</label>
                 <div class="col-md-10">
-                    <input class="form-control" id="senha" type="password" placeholder="Senha (requerido)" formControlName="senha" />
-                  
+                    <input class="form-control" id="senha" type="password" placeholder="Senha (requerido)" formControlName="senha" 
+                    [ngClass]="{ 'is-invalid' : mostrarMensagem.senha }" /> 
+                    <span class="text-danger" *ngIf="mostrarMensagem.senha">
+                        <p [innerHtml]="mostrarMensagem.senha"></p>
+                    </span>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-2 control-label">Confirme a Senha</label>
                 <div class="col-md-10">
-                    <input class="form-control" id="senhaConfirmacao" type="password" placeholder="Confirme a Senha (requerido)" formControlName="senhaConfirmacao" />
-                   
+                    <input class="form-control" id="senhaConfirmacao" type="password" placeholder="Confirme a Senha (requerido)" formControlName="senhaConfirmacao" 
+                    [ngClass]="{ 'is-invalid' : mostrarMensagem.senhaConfirmacao }" /> 
+                    <span class="text-danger" *ngIf="mostrarMensagem.senhaConfirmacao">
+                        <p [innerHtml]="mostrarMensagem.senhaConfirmacao"></p>
+                    </span>
                 </div>
             </div>
+
             <div class="form-group">
                 <div class="col-md-4 col-md-offset-2">
                     <!--BOTAO NÃO É LIBERADO ENQUANTO O FORMULARIO ESTIVER INVALIDO-->
@@ -65,14 +69,13 @@
                 </div>
             </div>
 
-
             <div class="form-group">
                 <div class="col-md-4 col-md-offset-2">
                     <!--EXISTEM 3 ESTADOS POSSIVEIS DE UM FORMULARIO PASSA-->
                     <p>Fomulario válido: {{ cadastroForm.valid?'SIM':'NÃO' }}</p>
                     <p>Fomulario tocado: {{ cadastroForm.touched?'SIM':'NÃO' }}</p>
                     <p>Fomulario sujado: {{ cadastroForm.dirty?'SIM':'NÃO' }}</p>
-
+                    <!--QUANDO SUBMETER APARECEM OS DADOS CAPTURADOS AQUI-->
                     <p>Fomulario resultado: {{ resultadoDoForm }}</p> 
                 </div>
             </div>
