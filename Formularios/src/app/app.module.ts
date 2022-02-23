@@ -11,9 +11,6 @@ registerLocaleData(localePt);
 //COMPONENTS
 import { AppComponent } from './app.component';
 //SPA
-import { MenuComponent } from './navegacao/menu/menu.component';
-import { CorpoComponent } from './navegacao/corpo/corpo.component';
-import { RodapeComponent } from './navegacao/rodape/rodape.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
 import { ContatoComponent } from './institucional/contato/contato.component';
 import { rootRouterConfig } from './app.routes';
@@ -26,14 +23,12 @@ import { Cadastro2Component } from './reactiveForms/cadastro/cadastro2.component
 import { TextMaskModule } from 'angular2-text-mask';
 import { NgBrazil } from 'ng-brazil';
 import { HttpClientModule } from '@angular/common/http';
-import { CustomFormsModule } from 'ng2-validation'
+import { CustomFormsModule } from 'ng2-validation';
+import { NavegacaoModule } from './navegacao/navegacao.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MenuComponent,
-    CorpoComponent,
-    RodapeComponent,
+    AppComponent,   
     SobreComponent,
     ContatoComponent,
     DataBindingComponent,
@@ -44,6 +39,7 @@ import { CustomFormsModule } from 'ng2-validation'
   imports: [
     BrowserModule,
     FormsModule,
+    NavegacaoModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgBrazil,
