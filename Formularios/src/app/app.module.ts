@@ -7,22 +7,16 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt);
 
-//COMPONENTS
+//COMPONENT BASE
 import { AppComponent } from './app.component';
 //SPA
 import { SobreComponent } from './institucional/sobre/sobre.component';
-import { ContatoComponent } from './institucional/contato/contato.component';
-//import { rootRouterConfig } from './app.routes'; //REMOVO PARA MODULARIZAR ISSO 
+import { ContatoComponent } from './institucional/contato/contato.component'; 
 import { DataBindingComponent } from './apps/data-binding/data-binding.component';
-import { ProdutoService } from './apps/arquitetura-componentes/produtos/produtos.service';
+import { ProdutoService } from './apps/arquitetura-componentes/produtos/lista-produto/produtos.service';
 import { ListaProdutoComponent } from './apps/arquitetura-componentes/produtos/lista-produto/lista-produto.component';
-//REACTIVE FORMS
-import { TextMaskModule } from 'angular2-text-mask';
-import { NgBrazil } from 'ng-brazil';
-import { HttpClientModule } from '@angular/common/http';
-import { CustomFormsModule } from 'ng2-validation';
-//MODULARIZACAO DE COMPONENTS
-import { AppRoteamentoModule } from './app.routes';
+import { AppRoteamentoPrincipalModule } from './app.routes';
+//import { rootRouterConfig } from './app.routes'; //REMOVO PARA MODULARIZAR ISSO
 //MODULARIZACAO DE ROTAS
 import { NavegacaoModule } from './navegacao/navegacao.module';
 
@@ -39,11 +33,7 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
     FormsModule,
     NavegacaoModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    NgBrazil,
-    TextMaskModule,
-    CustomFormsModule,
-    AppRoteamentoModule 
+    AppRoteamentoPrincipalModule 
     //[RouterModule.forRoot(rootRouterConfig, { useHash: false})] //REMOVIDO PARA MODULARIZAÇÃO DISSO
   ],
   providers: [

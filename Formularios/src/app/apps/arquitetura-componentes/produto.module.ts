@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { ProdutoDashboardComponent } from "./produto-dashboard/produto-dashboard.component";
+import { ProdutoDashboardComponent } from "./produtos/produto-dashboard/produto-dashboard.component";
 import { ProdutoRoteamentoModule } from "./produto.route";
 
 @NgModule({
@@ -11,8 +11,8 @@ import { ProdutoRoteamentoModule } from "./produto.route";
         CommonModule, 
         ProdutoRoteamentoModule
     ],
-    exports: [
-
+    exports: [    
+        ProdutoDashboardComponent    
     ]
 })
 export class ProdutoModule{}
