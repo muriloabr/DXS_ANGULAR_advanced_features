@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
@@ -14,21 +13,18 @@ import { AppComponent } from './app.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
 import { ContatoComponent } from './institucional/contato/contato.component';
 //import { rootRouterConfig } from './app.routes'; //REMOVO PARA MODULARIZAR ISSO 
-import { DataBindingComponent } from './aplications/data-binding/data-binding.component';
-import { ProdutoService } from './produtos/produtos.service';
-import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
+import { DataBindingComponent } from './apps/data-binding/data-binding.component';
+import { ProdutoService } from './apps/arquitetura-componentes/produtos/produtos.service';
+import { ListaProdutoComponent } from './apps/arquitetura-componentes/produtos/lista-produto/lista-produto.component';
 //REACTIVE FORMS
-import { CadastroComponent } from './reactiveForms/cadastro/cadastro.component';
-import { Cadastro2Component } from './reactiveForms/cadastro/cadastro2.component';
 import { TextMaskModule } from 'angular2-text-mask';
 import { NgBrazil } from 'ng-brazil';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomFormsModule } from 'ng2-validation';
 //MODULARIZACAO DE COMPONENTS
-import { NavegacaoModule } from './navegacao/navegacao.module';
 import { AppRoteamentoModule } from './app.routes';
 //MODULARIZACAO DE ROTAS
-
+import { NavegacaoModule } from './navegacao/navegacao.module';
 
 @NgModule({
   declarations: [
@@ -36,9 +32,7 @@ import { AppRoteamentoModule } from './app.routes';
     SobreComponent,
     ContatoComponent,
     DataBindingComponent,
-    ListaProdutoComponent,
-    CadastroComponent,
-    Cadastro2Component
+    ListaProdutoComponent
   ],
   imports: [
     BrowserModule,

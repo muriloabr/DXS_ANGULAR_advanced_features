@@ -1,10 +1,15 @@
+//BASE
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
 import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
+//VALIDADORES E MASCARAS
 import { NgBrazilValidators } from 'ng-brazil';
-import { Usuario } from './models/usuario';
 import { utilsBr } from 'js-brasil';
 import { CustomValidators } from 'ng2-validation';
+//INTERFACE
+import { Usuario } from './models/usuario';
+//VALIDACAO AUTOMATICA
 import { MensagensDeValidacao, MostrarMensagem, ValidadorGenerico }  from './validacao-formulario-generico';
+//EVENTOS E OBSERVABLES
 import { fromEvent, merge, Observable } from 'rxjs';
 
 @Component({
@@ -19,7 +24,15 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
   //VALIDACAO CUSTOMIZADA E COM COMPARACAO
   private senha = new FormControl('', [Validators.required, CustomValidators.rangeLength([6,15])]);
   private senhaConfirmacao = new FormControl('', [Validators.required, CustomValidators.equalTo(this.senha)]);
-  
+   //USUARIO QUE O FORM VAI PRODUZIR PARA SER CADASTRADO NO FINAL DA SUBMISSAO PARA O END-POINT SERIZALIZADO EM JSON
+  private usuario!: Usuario;
+  public resultadoDoForm: string = '';
+  //VARIAVEL QUE CARREGA A BIBLIOTECA DE MASCARAS BR DE CAMPOS COMO CPF, CNPJ, ETC
+  public mascaras = utilsBr.MASKS;
+  //VALIDAÇÕES AUTOMATIZADAS PELA CLASSE validacao-formulario-generico
+  private mensagensDeValidacao: MensagensDeValidacao;
+  public mostrarMensagem: MostrarMensagem = {};
+  private validadorGenerico: ValidadorGenerico; 
   //GRUPO DE COMPONENTES DO FORMULARIO, ATRELADO AO FORMULARIO HTML
   public cadastroForm: FormGroup = this.formBuilderMeu.group({
     nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(150)]],
@@ -28,19 +41,8 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
     senha: this.senha, //ATRIBUINDO CUSTOMIZACAO
     senhaConfirmacao: this.senhaConfirmacao //ATRIBUINDO CUSTOMIZACAO
   });
-
-  //USUARIO QUE O FORM VAI PRODUZIR PARA SER CADASTRADO NO FINAL DA SUBMISSAO PARA O END-POINT SERIZALIZADO EM JSON
-  usuario!: Usuario;
-  resultadoDoForm: string = '';
-  //VARIAVEL QUE CARREGA A BIBLIOTECA DE MASCARAS BR DE CAMPOS COMO CPF, CNPJ, ETC
-  mascaras = utilsBr.MASKS;
-  //VALIDAÇÕES AUTOMATIZADAS PELA CLASSE validacao-formulario-generico
-  mensagensDeValidacao: MensagensDeValidacao;
-  mostrarMensagem: MostrarMensagem = {};
-  validadorGenerico: ValidadorGenerico;
-
-  constructor(private formBuilderMeu: FormBuilder) {    
-    
+ 
+  constructor(private formBuilderMeu: FormBuilder) {   
     //DEFININDO AS MENSAGENS DE ERRO PARA CADA PROPRIEDADE DE ERRO, EM LETRA MINUSCULA
     this.mensagensDeValidacao = {
       nome: {
