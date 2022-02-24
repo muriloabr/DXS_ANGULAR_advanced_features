@@ -24,7 +24,7 @@
             <p class="card-text">Uso de roteamento, configuração de exibição de valores monetários, consumo de dados por JSon, através de um serviço de end-point.</p>
           </div>
           <div class="card-footer">
-            <a href="/produtos" class="btn btn-primary">ACESSE ESTE EXEMPLO</a>
+            <a [routerLink]="['/produtos']"class="btn btn-primary">ACESSE ESTE EXEMPLO</a>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
                 criando-se um enorme HTML.</p>
           </div>
           <div class="card-footer">
-            <a href="/cadastro" class="btn btn-primary">ACESSE ESTE EXEMPLO</a>
+            <a [routerLink]="['/cadastro']" class="btn btn-primary">ACESSE ESTE EXEMPLO</a>
           </div>
         </div>
       </div>
@@ -55,7 +55,20 @@
             </p>
           </div>
           <div class="card-footer">
-            <a href="/cadastro2" class="btn btn-primary">ACESSE ESTE EXEMPLO</a>
+            <a [routerLink]="['/cadastro2']" class="btn btn-primary">ACESSE ESTE EXEMPLO</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="/assets/produtividade.jpg" height="164px" width="253px" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Produtividade</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          </div>
+          <div class="card-footer">
+            <a [routerLink]="['/produtos/dashboard']" class="btn btn-primary">ACESSE ESTE EXEMPLO</a>
           </div>
         </div>
       </div>

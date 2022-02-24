@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 //SPA
 import { SobreComponent } from './institucional/sobre/sobre.component';
 import { ContatoComponent } from './institucional/contato/contato.component';
-import { rootRouterConfig } from './app.routes';
+//import { rootRouterConfig } from './app.routes'; //REMOVO PARA MODULARIZAR ISSO 
 import { DataBindingComponent } from './aplications/data-binding/data-binding.component';
 import { ProdutoService } from './produtos/produtos.service';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
@@ -24,7 +24,11 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { NgBrazil } from 'ng-brazil';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomFormsModule } from 'ng2-validation';
+//MODULARIZACAO DE COMPONENTS
 import { NavegacaoModule } from './navegacao/navegacao.module';
+import { AppRoteamentoModule } from './app.routes';
+//MODULARIZACAO DE ROTAS
+
 
 @NgModule({
   declarations: [
@@ -45,7 +49,8 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
     NgBrazil,
     TextMaskModule,
     CustomFormsModule,
-    [RouterModule.forRoot(rootRouterConfig, { useHash: false})]
+    AppRoteamentoModule 
+    //[RouterModule.forRoot(rootRouterConfig, { useHash: false})] //REMOVIDO PARA MODULARIZAÇÃO DISSO
   ],
   providers: [
     ProdutoService,

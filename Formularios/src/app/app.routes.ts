@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import { DataBindingComponent } from './aplications/data-binding/data-binding.component';
 import { ContatoComponent } from './institucional/contato/contato.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
@@ -16,5 +17,18 @@ export const rootRouterConfig: Routes = [
     { path: 'produtos', component: ListaProdutoComponent},
     { path: 'produto-detalhe/:id', component: ListaProdutoComponent},
     { path: 'cadastro', component: CadastroComponent},
-    { path: 'cadastro2', component: Cadastro2Component}
+    { path: 'cadastro2', component: Cadastro2Component},
+    { path: 'produtos/dashboard', //CARRGANDO EM LAZY LOADING O MODULO DE ROTA PARA PRODUTOS
+        loadChildren: () => import('./aplications/arquitetura-componentes/produto.module')
+        .then(modulaoo => modulaoo.ProdutoModule) }
 ];
+
+@NgModule({
+    imports: [
+    RouterModule.forRoot(rootRouterConfig)
+    ],
+    exports: [
+        RouterModule
+    ]
+})
+export class AppRoteamentoModule{}
