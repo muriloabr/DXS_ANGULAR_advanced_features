@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-produto-dashboard',
   template: `
     <p>
-      produto-dashboard works!
+      produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!
     </p>
   `,
   styles: [
