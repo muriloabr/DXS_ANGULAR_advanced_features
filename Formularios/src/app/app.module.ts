@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
 import { APP_BASE_HREF } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -18,7 +19,8 @@ import { RodapeComponent } from "./navegacao/rodape/rodape.component";
     RodapeComponent  
   ],
   imports: [
-    BrowserModule,    
+    BrowserModule,
+    HttpClientModule,    
     AppRoteamentoPrincipalModule
   ],
   providers: [

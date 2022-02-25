@@ -5,8 +5,9 @@ export const rootRouterConfig: Routes = [
     //{ path: '', redirectTo: '/loja', pathMatch: 'full'},  //REDIRECIONAMENTO
     { path: '', //CARRGANDO EM LAZY LOADING O MODULO DE ROTA PARA NAVEGACAO
         loadChildren: () => import('./navegacao/navegacao.module')
-        .then(modulaoo => modulaoo.NavegacaoModule) }
-];
+        .then(modulaoo => modulaoo.NavegacaoModule) },
+        { path: '**', redirectTo: '/', pathMatch: 'full'}, //404 REDIRECIONA PARA A HOME
+    ];
 
 @NgModule({
     imports: [

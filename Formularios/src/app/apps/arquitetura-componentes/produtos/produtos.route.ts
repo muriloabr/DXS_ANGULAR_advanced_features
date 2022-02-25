@@ -8,7 +8,7 @@ export const produtoRouterConfig: Routes = [
     { path: 'dashboard', component: ProdutoDashboardComponent},
     { path: 'webcommerce', component: ListaProdutoComponent},
     { path: 'webcommerce/produto-detalhe/:id', component: ListaProdutoComponent},
-    { path: '', component: ListaProdutoComponent}
+    { path: '', component: ProdutoDashboardComponent}
 ];
 
 @NgModule({
