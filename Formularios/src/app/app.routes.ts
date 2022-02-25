@@ -1,29 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DataBindingComponent } from './apps/data-binding/data-binding.component';
-import { ContatoComponent } from './institucional/contato/contato.component';
-import { SobreComponent } from './institucional/sobre/sobre.component';
-import { CorpoComponent } from './navegacao/corpo/corpo.component';
 
 export const rootRouterConfig: Routes = [
-    { path: '', redirectTo: '/loja', pathMatch: 'full'},  //REDIRECIONAMENTO
-    //ROTA SIMPLES
-    { path: 'loja', component: CorpoComponent}, 
-    { path: 'contato', component: ContatoComponent},
-    { path: 'sobre', component: SobreComponent},
-    { path: 'apps', component: DataBindingComponent},    
-    //ROTA EM LAZY LOADING CARREGANDO SOMENTE UM .JS EXCLUSIVO POR MODULO AO SER ACESSADO
-    { path: 'produtos', //CARRGANDO EM LAZY LOADING O MODULO DE ROTA PARA PRODUTOS
-        loadChildren: () => import('./apps/arquitetura-componentes/produto.module')
-        .then(modulaoo => modulaoo.ProdutoModule) },
-    { path: 'cadastros', //CARRGANDO EM LAZY LOADING O MODULO DE ROTA PARA CADASTROS
-    loadChildren: () => import('./apps/reactive-forms/cadastro.module')
-    .then(modulaoo => modulaoo.ProdutoModule) }
+    //{ path: '', redirectTo: '/loja', pathMatch: 'full'},  //REDIRECIONAMENTO
+    { path: '', //CARRGANDO EM LAZY LOADING O MODULO DE ROTA PARA PRODUTOS
+        loadChildren: () => import('./navegacao/navegacao.module')
+        .then(modulaoo => modulaoo.NavegacaoModule) }
 ];
 
 @NgModule({
     imports: [
-    RouterModule.forRoot(rootRouterConfig)
+    RouterModule.forRoot(rootRouterConfig) //USADO NESTE APP ROOT
     ],
     exports: [
         RouterModule

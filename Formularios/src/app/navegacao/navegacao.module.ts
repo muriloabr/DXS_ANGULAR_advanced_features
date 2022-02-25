@@ -1,26 +1,21 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { Router, RouterModule } from "@angular/router";
+//NAVEGACAO MODULO CUSTOM
+import { NavegacaoRoteamentoModule } from "./navegacao.route";
 //SPA
 import { CorpoComponent } from "./corpo/corpo.component";
-import { MenuComponent } from "./menu/menu.component";
-import { RodapeComponent } from "./rodape/rodape.component";
-
+import { ListaAppsComponent } from "./lista-apps/lista-apps.component";
 
 @NgModule({
-    declarations: [
+    declarations: [ //COMPONMENTES QUE VOU USAR NESTE MODULO
         CorpoComponent,
-        MenuComponent,
-        RodapeComponent
+        ListaAppsComponent
     ],
     imports: [
         CommonModule,
-        RouterModule
+        NavegacaoRoteamentoModule
     ],
-    exports: [  //compartilho o import e uso desses componentes com o mundo
-        CorpoComponent,
-        MenuComponent,
-        RodapeComponent
+    exports: [  
     ]
 })
 export class NavegacaoModule{}

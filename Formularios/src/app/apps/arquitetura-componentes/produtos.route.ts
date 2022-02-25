@@ -8,12 +8,12 @@ export const produtoRouterConfig: Routes = [
     { path: 'dashboard', component: ProdutoDashboardComponent},
     { path: 'webcommerce', component: ListaProdutoComponent},
     { path: 'webcommerce/produto-detalhe/:id', component: ListaProdutoComponent},
-    { path: '', component: ListaProdutoComponent}
+    { path: '', redirectTo: '/produtos/webcommerce', pathMatch: 'full'}
 ];
 
 @NgModule({
     imports: [
-        RouterModule.forChild(produtoRouterConfig)
+        RouterModule.forChild(produtoRouterConfig) //PARA RESPOSNDER AOS CAMINHOS DENTRO DO QUE TROUXE ATE AQUI PRODUTOS/*
     ],
     exports: [RouterModule]
 })

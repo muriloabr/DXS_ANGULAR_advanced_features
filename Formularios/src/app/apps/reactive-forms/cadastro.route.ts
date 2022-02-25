@@ -15,6 +15,8 @@ export const produtoRouterConfig: Routes = [
     imports: [
         RouterModule.forChild(produtoRouterConfig)
     ],
-    exports: [RouterModule]
+    exports: [
+        RouterModule
+    ]
 })
 export class CadastroRoteamentoModule{}
