@@ -34,15 +34,16 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
   public mostrarMensagem: MostrarMensagem = {};
   private validadorGenerico: ValidadorGenerico; 
   //GRUPO DE COMPONENTES DO FORMULARIO, ATRELADO AO FORMULARIO HTML
-  public cadastroForm: FormGroup = this.formBuilderMeu.group({
-    nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(150)]],
-    cpf: ['', [Validators.required, NgBrazilValidators.cpf]],
-    email: ['', [Validators.required, Validators.email]],
-    senha: this.senha, //ATRIBUINDO CUSTOMIZACAO
-    senhaConfirmacao: this.senhaConfirmacao //ATRIBUINDO CUSTOMIZACAO
-  });
+  public cadastroForm: FormGroup;
  
-  constructor(private formBuilderMeu: FormBuilder) {   
+  constructor(private formBuilderMeu: FormBuilder) {  
+    this.cadastroForm = this.formBuilderMeu.group({
+      nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(150)]],
+      cpf: ['', [Validators.required, NgBrazilValidators.cpf]],
+      email: ['', [Validators.required, Validators.email]],
+      senha: this.senha, //ATRIBUINDO CUSTOMIZACAO
+      senhaConfirmacao: this.senhaConfirmacao //ATRIBUINDO CUSTOMIZACAO
+    }); 
     //DEFININDO AS MENSAGENS DE ERRO PARA CADA PROPRIEDADE DE ERRO, EM LETRA MINUSCULA
     this.mensagensDeValidacao = {
       nome: {
@@ -79,7 +80,7 @@ export class Cadastro2Component implements OnInit, AfterViewInit {
     // Merge the blur event observable with the valueChanges observable
     merge(...controlBlurs).subscribe(value => {
       this.mostrarMensagem = this.validadorGenerico.processarMensagens(this.cadastroForm);
-    });1
+    });
   }
 
   ngOnInit(): void { }
