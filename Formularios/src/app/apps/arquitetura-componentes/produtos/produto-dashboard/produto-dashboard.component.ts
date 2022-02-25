@@ -1,20 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { Produto } from '../produto';
+import { ProdutoService } from '../produtos.service';
 
 @Component({
-  selector: 'app-produto-dashboard',
-  template: `
-    <p>
-      produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!produto-dashboard works!
-    </p>
-  `,
-  styles: [
-  ]
+  selector: 'app-lista-produto',
+  templateUrl: './produto-dashboard.component.html'
 })
 export class ProdutoDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private produtoService: ProdutoService) { }
 
-  ngOnInit(): void {
+  public produtos: Produto[] = [];
+
+  ngOnInit() {
+    this.produtoService.obterProdutos()
+      .subscribe( 
+        {
+          next: produtos => {
+            this.produtos = produtos;
+            console.log(produtos);
+          },
+          error: error => console.log(error),
+          complete: () => console.log('SUCESSO PRODUTOS RECEBIDOS!')
+        }
+      );
   }
-
 }

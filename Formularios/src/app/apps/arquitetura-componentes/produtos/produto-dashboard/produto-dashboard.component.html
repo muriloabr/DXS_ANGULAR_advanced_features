@@ -1,0 +1,10 @@
+<div class="container main-container">
+
+    <div class="row text-center">
+        <produto-count [produtos]="produtos" class="col-md-12"></produto-count>
+        <div  *ngIf="produtos.length < 1" class="col-md-12">
+            SEM PRODUTOS PARA EXIBIR!
+        </div>
+        <produto-card-detalhe *ngFor="let produto of produtos" [produto] = "produto" class="col-md-4" style="padding-bottom: 30px;"></produto-card-detalhe>
+    </div>
+</div>

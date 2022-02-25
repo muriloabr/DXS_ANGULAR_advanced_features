@@ -13,7 +13,7 @@ export const produtoRouterConfig: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forChild(produtoRouterConfig) //PARA RESPOSNDER AOS CAMINHOS DENTRO DO QUE TROUXE ATE AQUI PRODUTOS/*
+        RouterModule.forChild(produtoRouterConfig) //PARA RESPONDER AOS CAMINHOS DENTRO DO QUE TROUXE ATE AQUI PRODUTOS/*
     ],
     exports: [RouterModule]
 })

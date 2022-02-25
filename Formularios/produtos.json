@@ -6,7 +6,8 @@
       "valor": 15.90,
       "promocao": false,
       "valorPromo": 0,
-      "imagem": "mouse.jpg"
+      "imagem": "mouse.jpg",
+      "ativo": true
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "valor": 30.00,
       "promocao": false,
       "valorPromo": 0,
-      "imagem": "teclado.jpg"
+      "imagem": "teclado.jpg",
+      "ativo": false
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "valor": 250.00,
       "promocao": false,
       "valorPromo": 0,
-      "imagem": "monitor.jpg"
+      "imagem": "monitor.jpg",
+      "ativo": true
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "valor": 3000.00,
       "promocao": true,
       "valorPromo": 999.90,
-      "imagem": "laptop.jpg"
+      "imagem": "laptop.jpg",
+      "ativo": true
     },
     {
       "id": 5,
@@ -38,7 +42,8 @@
       "valor": 10.50,
       "promocao": false,
       "valorPromo": 0,
-      "imagem": "headset.jpg"
+      "imagem": "headset.jpg",
+      "ativo": false
     },
     {
       "id": 6,
@@ -46,7 +51,8 @@
       "valor": 90.00,
       "promocao": true,
       "valorPromo": 49.99,
-      "imagem": "webcam.jpg"
+      "imagem": "webcam.jpg",
+      "ativo": true
     },
     {
       "id": 7,
@@ -54,7 +60,8 @@
       "valor": 3000.00,
       "promocao": false,
       "valorPromo": 0,
-      "imagem": "celular.jpg"
+      "imagem": "celular.jpg",
+      "ativo": true
     },
     {
       "id": 8,
@@ -62,7 +69,8 @@
       "valor": 5.50,
       "promocao": false,
       "valorPromo": 0,
-      "imagem": "mousepad.jpg"
+      "imagem": "mousepad.jpg",
+      "ativo": true
     },
     {
       "id": 9,
@@ -70,7 +78,8 @@
       "valor": 300.00,
       "promocao": false,
       "valorPromo": 0,
-      "imagem": "gopro.jpg"
+      "imagem": "gopro.jpg",
+      "ativo": true
     }
   ],
   "posts": [
