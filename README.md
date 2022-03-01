@@ -19,7 +19,11 @@ Aplicação e estudo dos conceitos avançados de programação em Angular
   **Instalações requeridas para rodar o projeto:**  
   ``npm install ng2-validation --save``   
   ``npm install --save ng-brazil js-brasil``  
-  ``npm i -S angular2-text-mask text-mask-addons``  
+  ``npm i -S angular2-text-mask text-mask-addons`` 
+  
+  ## Rodando um Server Json próprio:  
+  ``npm install -g json-server``  
+  ``json-server --watch produtos.json``  
   
   **Comandos para rodar este projeto:**  
   ``CD Formularios | ng s --live-reload``  
