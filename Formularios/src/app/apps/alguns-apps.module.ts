@@ -8,7 +8,7 @@ import { DataBindingComponent } from './data-binding/data-binding.component';
 
 @NgModule({
     declarations: [
-        DataBindingComponent    
+        DataBindingComponent  
     ],
     imports: [
         CommonModule,

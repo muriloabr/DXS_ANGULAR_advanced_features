@@ -21,9 +21,13 @@
                     Por: {{ produto.valorPromo | currency:'BRL':true:'1.2-2':'pt' }}
                     </h4>
                 </div> 
-                <div class="card-footer">
+                <div class="card-footer mt-auto">
                     <a class="btn btn-success" (click)="emitirEvento()">
                         <span class="fa fa-shopping-cart"></span> Comprar agora!
+                    </a>&nbsp; &nbsp;
+                    <a class="btn btn-warning" [routerLink]="['editar/', produto.id]">
+                        <span class="fa Example of paper-plane-o fa-paper-plane-o">                    
+                        </span> Editar                
                     </a>
                 </div>             
             </div>
@@ -32,21 +36,29 @@
                     <ng-content select=".aproveite"></ng-content>
                     <div><h4>{{ produto.valor | currency:'BRL':true:'1.2-2':'pt' }}</h4></div>            
                 </div>
-                <div class="card-footer">
+                <div class="card-footer mt-auto">
                     <a class="btn btn-info" (click)="emitirEvento()">
                         <span class="fa fa-shopping-cart"></span> Comprar!
-                    </a>
+                    </a>&nbsp; &nbsp;
+                    <a class="btn btn-warning" [routerLink]="['editar/', produto.id]">
+                        <span class="fa Example of paper-plane-o fa-paper-plane-o">                    
+                        </span> Editar                
+                    </a>                    
                 </div>
             </div>
         </div>           
     </div>
     <ng-template #produtoDesativado>
         <ng-content select=".naoTemMais"></ng-content>
-        <div class="card-footer">             
+        <div class="card-footer mt-auto">             
             <a class="btn btn-danger">
                 <span class="fa Example of paper-plane-o fa-paper-plane-o">                    
                 </span> Me avise                
+            </a>&nbsp; &nbsp;
+            <a class="btn btn-warning" [routerLink]="['editar/', produto.id]">
+                <span class="fa Example of paper-plane-o fa-paper-plane-o">                    
+                </span> Editar                
             </a>
         </div>
-    </ng-template>
+    </ng-template>  
 </div>
