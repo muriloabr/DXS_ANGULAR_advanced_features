@@ -5,10 +5,10 @@ import { ProdutoDashboardComponent } from "./produto-dashboard/produto-dashboard
 import { ListaProdutoComponent } from "./lista-produto/lista-produto.component";
 
 export const produtoRouterConfig: Routes = [
+    { path: '', component: ProdutoDashboardComponent},
     { path: 'dashboard', component: ProdutoDashboardComponent},
     { path: 'webcommerce', component: ListaProdutoComponent},
-    { path: 'webcommerce/produto-detalhe/:id', component: ListaProdutoComponent},
-    { path: '', component: ProdutoDashboardComponent}
+    { path: 'webcommerce/produto-detalhe/:id', component: ListaProdutoComponent}    
 ];
 
 @NgModule({
