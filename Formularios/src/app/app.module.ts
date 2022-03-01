@@ -25,7 +25,7 @@ import { RodapeComponent } from "./navegacao/rodape/rodape.component";
     AppRoteamentoPrincipalModule
   ],
   providers: [
-    {provide: APP_BASE_HREF, useValue: '/'}
+    //{provide: APP_BASE_HREF, useValue: '/'} //ACESSO DIRETO PELA ESCRITA DA ROTA NÃO RODA, ENTÃO REMOVE ISSO E POE NO HTML SÓ
   ],
   bootstrap: [AppComponent]
 })
