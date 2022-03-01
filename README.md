@@ -21,7 +21,7 @@ Aplicação e estudo dos conceitos avançados de programação em Angular
   ``npm install --save ng-brazil js-brasil``  
   ``npm i -S angular2-text-mask text-mask-addons`` 
   
-  ** Rodando um Server Json próprio: **
+  **Rodando um Server Json próprio:**  
   ``npm install -g json-server``  
   ``json-server --watch produtos.json``  
   
