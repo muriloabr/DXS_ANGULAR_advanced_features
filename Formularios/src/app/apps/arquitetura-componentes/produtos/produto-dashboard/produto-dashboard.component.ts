@@ -2,8 +2,8 @@ import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, Vie
 import { fromEvent, Observable } from 'rxjs';
 import { Produto } from '../produto';
 import { ProdutoService } from '../produtos.service';
-import { ProdutoDetalheComponent } from './componentes/produto-card-detalhe.component';
-import { ProdutoCountComponent } from './componentes/produto-count.component';
+import { ProdutoDetalheComponent } from '../detalhe-produto/produto-card-detalhe.component';
+import { ProdutoCountComponent } from './produto-count.component';
 
 @Component({
   selector: 'app-lista-produto',

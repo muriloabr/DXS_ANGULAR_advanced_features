@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { Produto } from "../../produto";
+import { Produto } from "../produto";
 
 @Component ({
     selector: 'produto-count',
@@ -17,7 +17,7 @@ export class ProdutoCountComponent{
     produtos!: Produto[];
 
     contadorProdutosAtivos(): number {
-        if(this.produtos.length < 1){
+        if(this.produtos.length < 1){ //LENDO A QUANTIDADE DE PRODUTOS RECEBIDOS PELO INPUT DE DADOS EXTERNOS
             return 0;
         } else {
             return this.produtos.filter((produto: Produto) => produto.ativo).length

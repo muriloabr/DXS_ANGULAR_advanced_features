@@ -1,10 +1,12 @@
 <div class="container main-container">
     <h1 class="text-center" #tituloPagina>Bem vindo a nossa loja</h1>
     <div class="row text-center">
+        <!--USANDO COMPONENTE PARA PASSAR OS PRODUTOS E FAZER ELE CONTAR ESSES PRODUTOS-->
         <produto-count [produtos]="produtos" class="col-md-12"></produto-count>
         <div  *ngIf="produtos.length < 1" class="col-md-12">
             SEM PRODUTOS PARA EXIBIR!
         </div>
+        <!--USANDO COMPONENTE CARD DETALHE PARA MOSTRAR OS PRODUTOS-->
         <produto-card-detalhe *ngFor="let produto of produtos" [produto] = "produto" class="col-md-4" style="padding-bottom: 30px;" (status)="mudarStatus($event)">
             <!--SELECTOR CUSTOMIZANDO MENSAGENS DE COMPONENTES-->
             <h5 class="naoTemMais text-danger">Item indisponível</h5>
