@@ -1,24 +1,18 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="router-link-active"><img id="logo_topo" src="https://dataxstudios.com.br/assets/images/logo_DXS_400_190.png" alt="DXS | DATAXSTUDIOS" height="50px"
-        /></a>
+      <a class="navbar-brand" [routerLink]="['/']">
+        <img id="logo_topo" src="https://dataxstudios.com.br/assets/images/logo_DXS_400_190.png" alt="DXS | DATAXSTUDIOS" height="50px"/>
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link"  [routerLink]="['/produtos']" routerLinkActive="router-link-active">Produtos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  [routerLink]="['/cadastros']" routerLinkActive="router-link-active">Cadastros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  [routerLink]="['/sobre']" routerLinkActive="router-link-active">Sobre</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/contato']" routerLinkActive="router-link-active">Contato</a>
+          <!--CRIACAO AUTOMATICA DE MENU-->
+          <li class="nav-item" *ngFor="let item of menu">
+             <!--routerLink ATIVA O LINK QUE SE REFERE AO NAVEGADO E TEM OPTIONS PARA DETECTAR SE ATIVA QUANDO É EXATA URL OU PODE SER ATIVO TAMBÉM COM URL CHILD-->
+            <a class="nav-link"  [routerLink]="[item.link]"  [routerLinkActiveOptions]="{ exact: item.exact }" routerLinkActive="ativo">{{item.name}}</a>
           </li>
         </ul> 
       </div>

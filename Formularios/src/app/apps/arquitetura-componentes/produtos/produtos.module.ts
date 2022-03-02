@@ -6,13 +6,15 @@ import { ProdutoDashboardComponent } from "./produto-dashboard/produto-dashboard
 import { ProdutoRoteamentoModule } from "./produtos.route";
 import { ProdutoDetalheComponent } from "./produto-dashboard/componentes/produto-card-detalhe.component";
 import { ProdutoCountComponent } from "./produto-dashboard/componentes/produto-count.component";
+import { EditarProdutoComponent } from "./editar-produto/editar-produto.component";
 
 @NgModule({
     declarations: [
         ProdutoDashboardComponent,
         ListaProdutoComponent,
         ProdutoDetalheComponent,
-        ProdutoCountComponent        
+        ProdutoCountComponent,
+        EditarProdutoComponent        
     ],
     imports: [
         CommonModule, 

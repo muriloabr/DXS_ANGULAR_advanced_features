@@ -18,6 +18,15 @@
     background-color: #dcdcdc;
 }
 
+.ativo, a:active {
+    color: red;
+}
+
+a {
+    color: grey;
+}
+
+
 /*FORMULARIOS*/
 input,
 select,
